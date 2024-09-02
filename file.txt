@@ -11,14 +11,6 @@ def parse_args() -> Namespace:
     """
     parser = ArgumentParser()
     group = parser.add_mutually_exclusive_group(required=True)
-    parser.add_argument(
-        "path",
-        type=str,
-        nargs="?",
-        default="",
-        help="Optional file path to write to. If not provided,\
-            write to stdout",
-    )
     group.add_argument(
         "url",
         type=str,
@@ -31,6 +23,14 @@ def parse_args() -> Namespace:
         action="store_true",
         help="Launch a CLI helper tool to autofill parts of\
             a url for you",
+    )
+    parser.add_argument(
+        "path",
+        type=str,
+        nargs="?",
+        default="",
+        help="Optional file path to write to. If not provided,\
+            write to stdout",
     )
     return parser.parse_args()
 
